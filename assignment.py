@@ -80,25 +80,35 @@ def choice_2():
 def choice_3():
     print("========== YOUR SHOPPING CART ==========")
     print("")
+    # check if the shopping cart is empty
     if len(shopping_cart) == 0:
         print("Your shopping cart is empty!")
         print("There is nothing to remove.")
         print("")
+    # if the shopping cart is not empty
     else:
+        # the number before the item in the shopping cart
         n = 0
+        # print out everything in the shoppong cart
         for s in shopping_cart:
+            # n+1 is the place number of the item in the shopping cart and the item
             print(n + 1, s)
             n += 1
         print("")
+        # ask the user what they would like to remove
         print("Which item would you like to remove?")
+        # take the users input
         remove = int(input("Enter item number: "))
+        # don't let the user enter a numer greater than the number of items in the shopping cart
         while remove > n:
             print("Invalid option!")
             remove = int(input("Enter item number: "))
 
             
         print("")
+        # store and delete the item that the user wnat to delete
         item_removed = shopping_cart.pop(int(remove) - 1)
+        # let the user see what has been deleted
         print(item_removed, "was removed from your cart!")
         print("")
 # function for showing everything inside the current shopping cart
@@ -106,10 +116,12 @@ def choice_4():
     print("========== YOUR SHOPPING CART ==========")
     print("")
     n = 0
+    # print the items in the shopping cart
     for s in shopping_cart:
         print(n + 1, s, " " * (8-len(s)), "$", price[products.index(s)])
         n += 1
     print("")
+    # print out how many things are in the shopping cart
     print("Total items:", len(shopping_cart))
     print("")
 # function for showing the total cost of the current shopping cart
@@ -117,24 +129,26 @@ def choice_5():
     print("========== CURRENT TOTAL ==========")
     print("")
     n = 0
+    # print out every items in the users shopping cart
     for s in shopping_cart:
         print(n + 1, s, " " * (8-len(s)), "$", price[products.index(s)])
         n += 1
     print("")
+    # store the total cost into a variable
     total_cost = 0
+    # calculate the total cost by adding the price of everything one by one
     for s in shopping_cart:
         total_cost += price[products.index(s)]
+    # print out the total cost
     print("Total cost:", total_cost)
     print("")
 # function for receipt and check out
 def choice_6():
     print("========== RECEIPT ==========")
     print("")
+    # print out the date format from the begining out the program
     print("Date:", format_month_date_year)
     print("")
-    total_cost = 0
-    for s in shopping_cart:
-        total_cost += price[products.index(s)]
     print("Subtotal:     $", total_cost)
     if total_cost < 10:
         print("Discount:       No")
