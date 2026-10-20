@@ -149,7 +149,14 @@ def choice_6():
     # print out the date format from the begining out the program
     print("Date:", format_month_date_year)
     print("")
+    # calculate the total cost
+    total_cost = 0
+    # add the price of everything in the shopping cart one by one
+    for s in shopping_cart:
+        total_cost += price[products.index(s)]
+    # print out the total
     print("Subtotal:     $", total_cost)
+    # print out if the user can have a discount base on the total cost
     if total_cost < 10:
         print("Discount:       No")
     elif total_cost < 20:
@@ -158,6 +165,7 @@ def choice_6():
         print("Discount:       10%")
     else:
         print("Discount:       15%")
+    # print out how much money the user saved base on the total cost discount
     if total_cost < 10:
         print("Amount Saved: $ 0")
     elif total_cost < 20:
@@ -167,6 +175,7 @@ def choice_6():
     else:
         print("Amount Saved: $", total_cost * 0.15)
     print("")
+    # print out the total cost after the discount
     if total_cost < 10:
         print("Final Total:  ", total_cost)
     elif total_cost < 20:
